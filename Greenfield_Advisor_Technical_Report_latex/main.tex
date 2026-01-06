@@ -1,0 +1,891 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} 
+\usepackage{graphicx}       
+\usepackage{geometry}       
+\geometry{margin=2.5cm}
+\usepackage{hyperref}       
+\usepackage{float}          
+\usepackage{booktabs}       
+\usepackage{caption}        
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage[none]{hyphenat}
+\usepackage{indentfirst}
+
+
+\sloppy
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{headerblue}{RGB}{0, 95, 115}
+\definecolor{rowgray}{RGB}{225, 230, 235}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% Margini
+\geometry{top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm}
+
+\lstset{style=mystyle}
+\newcommand{\LogoHeight}{20mm}
+\newcommand{\SpaceAfterLogo}{4mm}
+\newcommand{\SpaceAfterUniversity}{6mm}
+\newcommand{\RuleWidth}{0.92\textwidth}
+\newcommand{\RuleThickness}{0.4pt}
+\newcommand{\SpaceAroundSubjectTop}{6mm}
+\newcommand{\SpaceAroundSubjectBottom}{6mm}
+\newcommand{\SpaceBetweenPRandTitle}{8mm} % più spazio tra Project Report e GreenField Advisor
+\newcommand{\SpaceBeforeProfBlock}{8mm}
+\newcommand{\SpaceBeforeStudentsRule}{8mm}
+\newcommand{\SpaceBeforeAY}{6mm}
+\newcommand{\university}{POLITECNICO DI BARI}
+\newcommand{\department}{DIPARTIMENTO DI INGEGNERIA ELETTRICA E DELL'INFORMAZIONE}
+\newcommand{\degree}{CORSO DI LAUREA MAGISTRALE IN\\ INGEGNERIA INFORMATICA}
+\newcommand{\subject}{SOFTWARE ARCHITECTURE AND PATTERN DESIGN}
+\newcommand{\reporttitle}{GREENFIELD ADVISOR -- AGRICULTURE SUSTAINABILITY}
+\newcommand{\professor}{MARINA MONGIELLO}
+\newcommand{\students}{FRANCESCO COLELLA -- ZAIDI SYED SAMAR UI HASSAN -- ALBERTO VOX}
+\newcommand{\academicYear}{AY 2025--2026}
+\usepackage{tocloft}
+
+\begin{document}
+
+% FRONTESPIZIO
+\thispagestyle{empty}
+% Logo centrato
+\begin{center}
+  \includegraphics[height=\LogoHeight]{images/logo.png}
+\end{center}
+
+\vspace{\SpaceAfterLogo}
+
+% University — nessuna barra sotto
+\begin{center}
+  {\Large\bfseries \university}
+\end{center}
+
+% Dipartimento e Corso
+\vspace{\SpaceAfterUniversity}
+\begin{center}
+  {\normalsize \department}\\[3mm]
+  {\normalsize \degree}
+\end{center}
+
+% SUBJECT con sola linea SOPRA (nessuna linea sotto)
+\vspace{\SpaceAroundSubjectTop}
+\begin{center}
+  \rule{\RuleWidth}{\RuleThickness}\\[3mm]
+  {\normalsize \textbf{SUBJECT :} \subject}
+\end{center}
+
+% Spazio tra Subject e Project Report (nessuna linea in mezzo)
+\vspace{\SpaceAroundSubjectBottom}
+
+% PROJECT REPORT
+\begin{center}
+  {\normalsize \textbf{PROJECT REPORT}}
+\end{center}
+
+% Più spazio tra Project Report e titolo
+\vspace{\SpaceBetweenPRandTitle}
+
+% Titolo progetto
+\begin{center}
+  {\large\bfseries \reporttitle}
+\end{center}
+
+% Blocco Professor a sinistra
+\vspace{\SpaceBeforeProfBlock}
+{\normalsize \textbf{PROFESSOR:}}\\[2pt]
+{\normalsize \professor}
+
+% Students con regola sopra
+\vspace{\SpaceBeforeStudentsRule}
+\begin{center}
+  \rule{\RuleWidth}{\RuleThickness}\\[3mm]
+  {\normalsize \textbf{STUDENTS:} \students}
+\end{center}
+
+% AY
+\vspace{\SpaceBeforeAY}
+\begin{center}
+  {\normalsize \academicYear}
+\end{center}
+
+
+% INDICE
+\tableofcontents
+\newpage
+
+\listoftables
+\newpage
+\lstlistoflistings
+\newpage
+\listoffigures
+\newpage
+
+\section{Introduction}
+
+Agriculture has long served as the foundation of human civilization and currently faces mounting pressures from climate change, soil degradation, and resource constraints, while needing to deliver higher productivity with reduced environmental footprints. Challenges include extreme weather, market shocks, and biodiversity loss, alongside ambitious policy targets such as the Kunming-Montreal Global Biodiversity Framework and the EU Farm to Fork Strategy \cite{finger}.
+
+\bigskip
+
+With global population projections exceeding 9 billion by 2050, the demand for sustainable food production is escalating rapidly \cite{reza}. To address these growing needs, the agricultural sector is undergoing a profound transformation driven by technological innovation such as precision farming, IoT, AI, robotics, and remote sensing that are transforming production systems and food value chains, enabling improved decision-making and reducing trade-offs. These innovations are key to achieve sustainability, resilience, and animal welfare in modern agriculture \cite{finger, reza}.
+
+\newpage
+
+\section{State of the Art}
+
+Green agriculture represents a paradigm shift toward sustainable, resource-efficient, and climate-resilient farming systems. Recent advancements combine ecological principles with digital technologies to optimize productivity while minimizing environmental impact.
+
+\medskip
+
+\noindent \textbf{Precision and Smart Agriculture:} Modern green agriculture leverages IoT sensors, AI, and machine learning to monitor soil moisture, nutrient levels, and microclimatic conditions in real time. Predictive analytics enable precise irrigation and fertilization, reducing resource waste and improving yields.
+\\ Drones and autonomous robots equipped with multispectral cameras support early detection of crop stress and disease, while edge computing ensures rapid decision-making in the field. Sensors play a crucial role in agriculture, detecting environmental changes and transmitting information to processors; smart sensors integrate onboard computing capabilities, allowing them to process and analyze data independently \cite{mansoor}.
+
+\bigskip
+\noindent \textbf{Climate-Smart and Regenerative Practices}: Climate-smart agriculture integrates agroforestry, cover cropping, and conservation tillage with digital advisory systems to enhance resilience against climate variability. Regenerative approaches focus on soil carbon restoration and biodiversity, increasingly supported by AI-driven modeling and digital twins for ecosystem simulation. \\
+``A Digital Regenerative Agriculture would prioritise farm environmental performance as a driver of productivity and provide the means of effectively quantify system capacity and condition'' \cite{odonoghue}.
+\\ Digital twins represent the virtual version of the corresponding farm, where real-time data collected are integrated to improve decision-making and productivity \cite{awais, tagarakis}.
+
+\bigskip
+\noindent \textbf{Controlled-Environment and Soilless Systems}: Vertical farming and hydroponics have emerged as key innovations, utilizing LED lighting, automated nutrient delivery, and AI-based growth optimization. These systems enable year-round production with minimal land and water use, and blockchain technologies are being adopted for traceability and food safety.
+\\They allow intensive production in less space strongly reducing land and water usage. Hydroponic farming itself could increase the yield per area up to 11 times while consuming until 13 times less water \cite{chole, tian}.
+
+\bigskip
+\noindent \textbf{Sustainable Inputs and Soil Health Monitoring}: Advances in biofertilizers, biostimulants, and nanotechnology improve nutrient efficiency and soil microbiome health. Sensor-based soil analysis combined with AI achieves near-perfect classification accuracy, enabling site-specific nutrient management \cite{rouphael}.
+
+\bigskip
+\noindent \textbf{Cross-Cutting Digital Trends}: Green agriculture increasingly relies on cloud-edge architectures, robotics, and blockchain for transparency and automation. Sustainability metrics now extend beyond carbon to include biodiversity and ecosystem services, aligning with global policy frameworks \cite{boyd}.
+\newpage
+
+\section{Methodology}
+
+GreenField Advisor is a platform designed to acquire data from heterogeneous sources (e.g. field sensors, meteorological datasets, camera images, etc.) and transform them into operational recommendations aimed at reducing the waste of water, energy, and fertilizers.
+
+\noindent Its primary objective is to foster more sustainable agricultural production through advanced analysis and intelligent decision-support mechanisms.
+
+\subsection{System Architecture}
+The system is organized into three main components that work together to deliver actionable insights. The first component, \textbf{Data Collection}, focuses on gathering information from multiple sources, ensuring a comprehensive view of the agricultural environment. Once collected, these data are processed through the \textbf{Data Processing Pipeline}, which handles tasks like cleaning, feature engineering, and parameter estimation to guarantee accuracy and reliability. Finally, the \textbf{Recommendation Module} leverages artificial intelligence models and complementary strategies to generate operational suggestions aimed at optimizing resource use and promoting sustainable agricultural practices.
+
+\subsubsection{Functional Requirements}
+The \textbf{Functional Requirements} describe what the system must do, namely the functionalities and behaviors to be implemented in order to meet the needs of the user or the process. It refers to the operations, services, and interactions that the system is expected to support. They can be grouped into the following main areas:
+
+\begin{itemize}
+    \item \textbf{Data Utilization \& Simulation} ensures reproducibility in controlled environments by leveraging existing datasets and a \textit{Digital Twin} approach. The system simulates real-time sensor inputs (\textit{IoT Ingestion}) to mimic field conditions for development and testing purposes.
+
+    \item \textbf{Real-Time Dashboard} provides an intuitive visualization layer, enabling users to monitor the state of key resources—such as water, energy, and fertilizers—alongside environmental parameter trends via dynamic charts and KPI cards. It also serves as the interface for system interactions.
+
+    \item \textbf{Hybrid Operative Suggestions} core logic module delivers optimized recommendations for irrigation and fertilizer dosage. Unlike traditional systems, it employs a \textit{Hybrid Intelligence} approach, combining deterministic rule-based controls with AI-driven predictions (Logistic Regression) to issue alerts in cases of potential waste or plant stress.
+
+    \item \textbf{Computer Vision Diagnosis} allows users to upload imagery of crop leaves to detect pathologies on-demand. The system utilizes a Deep Learning model (CNN) to classify plant health status (e.g., Healthy vs. Powdery Mildew) and provides immediate visual feedback.
+
+    \item \textbf{Smart Notification \& Reporting} that, instead of passive manual exports, implements an \textit{Event-Driven Reporting} mechanism. Upon detecting critical anomalies (e.g., simultaneous water and nutrient stress), it automatically aggregates the data from the last 15 monitoring cycles and dispatches a detailed Email Report containing the incident history and actuator status.
+
+    \item \textbf{User Profiling \& Dynamic Configuration} ensures secure access via JWT authentication and allows users to manage their profiles. Crucially, it provides a \textit{Dynamic Settings} interface where users can adjust agronomic thresholds (e.g., max temperature, humidity limits) in real-time, synchronizing these preferences instantly with the backend logic.
+\end{itemize}
+
+\subsubsection{Non-Functional Requirements}
+The \textbf{Non-Functional Requirements} define how the system should operate, focusing on qualitative attributes and constraints that influence performance rather than core functionalities.
+These requirements typically encompass several key aspects:
+
+\begin{itemize}
+    \item \textbf{Scalability} leverages an \textit{Event-Driven Architecture}, allowing producer and consumer microservices to scale independently to handle increasing data loads without architectural bottlenecks.
+
+    \item \textbf{Reliability} ensures operational continuity through asynchronous messaging. The message broker acts as a buffer, preventing data loss even if downstream consumers are temporarily unavailable.
+
+    \item \textbf{Interoperability} facilitates integration with diverse environments by using standard JSON payloads for internal communication and exposing REST APIs and WebSockets for external client interactions.
+
+    \item \textbf{Usability} prioritizes user experience via a responsive \textbf{React} Dashboard that translates complex telemetry into intuitive KPI cards and real-time charts, making data accessible to non-technical operators.
+
+    \item \textbf{Performance} minimizes latency for decision-making. The integration of Socket.IO for data streaming and lightweight AI models (\textit{MobileNetV2}) ensures near real-time responsiveness.
+
+    \item \textbf{Security} protects data and access through a \textbf{Microservice-based Auth System}. It enforces stateless authentication via \textbf{JWT}, input validation with \textbf{Zod}, and secure credential storage using \textbf{bcrypt}.
+
+    \item \textbf{Maintainability} promotes code longevity and ease of updates through the strict application of Design Patterns (\textit{Strategy}, \textit{Observer}, \textit{Chain of Responsibility}), allowing logic modularization without affecting the core system.
+
+    \item \textbf{Explainability} ensures trust in automated decisions. Every alert generated by the system includes a specific, human-readable ``Reason'' field (e.g., specific threshold violation or probability score), distinguishing it from ``black-box'' solutions.
+\end{itemize}
+
+\bigskip
+
+\subsubsection{Chosen Architecture}
+
+The choice of the \textbf{Project Architecture} has been a critical factor in designing a system that is modular, scalable, and compatible. To achieve these objectives, a \textbf{microservice architecture} combined with an \textbf{event-driven} approach has been adopted.
+
+The \textbf{microservice architecture} decomposes complex software systems into a set of autonomous components, each assigned a well-defined responsibility. This modularization fosters flexibility and maintainability, as services interact through standardized network protocols rather than direct integration. Unlike monolithic architectures—where components are tightly coupled and deployed as a single unit—microservices enable independent development and deployment, thereby enhancing scalability and adaptability in large-scale environments.
+
+Although designed for autonomy, microservices must communicate to fulfill business functions, creating potential dependencies. To maintain loose coupling, \textbf{asynchronous event-driven communication} is often preferred over synchronous calls. This approach decouples producers from consumers, reducing temporal and structural dependencies by removing the need for immediate, direct invocation \cite{laigner}.
+
+The \textbf{event-driven} paradigm further enhances responsiveness by enabling rapid reactions to data changes. It relies on the publish/subscribe (pub/sub) model, where sensors or other data sources publish events, and subscribed services automatically update themselves, ensuring real-time adaptability and efficient communication.
+
+Event-driven microservice architectures offer substantial advantages compared to traditional monolithic systems. By employing asynchronous, event-based communication, these architectures achieve a high degree of loose coupling among services, thereby minimizing direct dependencies and reducing the systemic impact of localized modifications. This decoupling significantly enhances scalability and maintainability within distributed environments \cite{ghosh}.
+
+Empirical studies corroborate these benefits. For instance, several authors report that organizations adopting event-driven microservices observed a 42\% reduction in cross-service dependencies relative to implementations based on conventional communication models \cite{ghosh}. These findings underscore the role of event-driven paradigms in mitigating integration complexity and promoting modularity.
+
+Furthermore, multiple case studies document the practical advantages of this approach. Notably Ghosh \cite{ghosh} provides detailed analysis of implementations within a financial services firm, an e-commerce platform, and a healthcare provider, illustrating measurable improvements in operational efficiency and overall system effectiveness.
+
+Event-driven architectures are particularly suited for Internet of Things (IoT) environments, where distributed sensors and devices generate large volumes of events \cite{kumar}.
+
+The adoption of Event-Driven Architecture (EDA) requires a thorough cost-benefit analysis, considering implementation and maintenance expenses. Additionally, its distributed nature heightens security risks, necessitating robust frameworks with authentication, authorization, and encryption to ensure data integrity and user privacy \cite{silva}.
+\newpage
+\subsection{Main Architectural Components}
+
+The project’s \textbf{back-end} employs an event-driven microservices architecture specifically designed for monitoring and automation within precision agriculture. The system integrates simulated IoT telemetry, Machine Learning (Logistic Regression), and Deep Learning (Computer Vision) to deliver real-time agronomic recommendations.
+
+\bigskip
+
+The architectural organization of these components is illustrated in the following High-Level Component Diagram (Fig. \ref{fig:arch_diagram}). The schematic depicts the logical separation between the \textbf{Client Layer} and the \textbf{Docker Host Environment}, highlighting how the synchronous API Gateway orchestrates user interactions while the central \textbf{Kafka Event Bus} manages the asynchronous backend workflows.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/arch_diagram.png}
+    \caption{System Component Diagram showing the containerized microservices architecture and the central role of the Event Bus.}
+    \label{fig:arch_diagram}
+\end{figure}
+
+\bigskip
+
+Main architectural components are:
+
+\begin{itemize}
+    \item \textbf{Event Bus (Kafka):} acts as the system's backbone, decoupling the microservices. Instead of a complex multi-hop pipeline, the system is optimized around two high-throughput streams:
+    \begin{itemize}
+        \item \textbf{sensor-data} - The ingestion channel for raw telemetry streamed by the producers.
+        \item \textbf{system-advice} - The decision channel where the Agri-Analyzer publishes operational commands, subscribed to by the Notification Service and Dashboard.
+    \end{itemize}
+    
+    \item \textbf{Microservices:} set of autonomous components which are part of the full architecture.
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.5} 
+    \setlength{\tabcolsep}{8pt}      
+    
+    \arrayrulecolor{white} 
+    \setlength\arrayrulewidth{1pt}
+
+    \begin{tabular}{p{3.5cm}p{3cm}p{8.5cm}}
+    
+    \rowcolor{headerblue} 
+    \textcolor{white}{\textbf{Microservice}} & 
+    \textcolor{white}{\textbf{Architectural Role}} & 
+    \textcolor{white}{\textbf{Logic (Code)}} \\
+    \hline
+
+    \rowcolor{rowgray}
+    IoT Ingestion Service & 
+    Producer & 
+    Simulates field telemetry by ingesting CSV datasets. Adds traceability metadata and streams JSON events to the sensor-data topic. \\
+    \hline
+
+    Agri-Analyzer Engine & 
+    Processor \& Consumer & 
+    Orchestrates the Data Pipeline (Cleaning/Feature Engineering), and applies Hybrid Strategy logic (Rules + Logistic Regression AI) to generate operational advice. Publishes to system-advice. \\
+    \hline
+
+    \rowcolor{rowgray}
+    Notification Service & 
+    Observer \& Aggregator & 
+    Subscribes to system advice. Implements a Stateful Sliding Window (buffer) to monitor anomalies over time. Aggregates multiple triggers (e.g., Irrigation + Energy) into a single SMTP Email Report sent via the local Debug Server or Gmail. \\
+    \hline
+
+    API Gateway \& Vision AI Gateway & 
+    Processor & 
+    Acts as the bridge between Backend and Frontend (React). Manages Socket.IO for real-time data streaming and hosts the Deep Learning Model (CNN) for on-demand leaf pathology classification via REST API. \\
+    \hline
+
+    \rowcolor{rowgray}
+    Security Service & 
+    Service Provider & 
+    Dedicated microservice for User Management. Validates credentials using Zod, stores data in SQLite, and issues JWT Tokens for stateless authentication across the platform. \\
+    
+    \end{tabular}
+    
+    \arrayrulecolor{black} 
+    
+    \caption{List of Microservices}
+    \label{tab:microservices_list}
+\end{table}
+
+\bigskip
+
+\item \textbf{Patterns:} general, reusable solutions to recurring problems in the design of complex software systems. They are not ready-to-use code but rather conceptual guidelines and structures that help organize system components in a coherent, scalable, and maintainable way.
+
+Have been used:
+
+\begin{itemize}
+    \item \textbf{Observer} for sensor subscriptions: implemented in the Notification Service (\textit{notification\_consumer.py}), which monitors the \textit{system-advice} stream. It detects state transitions (e.g., OFF - ON) and triggers the reporting workflow.
+    
+    \item \textbf{Strategy} for interchangeable models: utilized in the Prediction Service (\textit{strategies\_model.py}) to define a common interface for decision logic. This allows the system to switch seamlessly between \textit{RuleBasedStrategy} and \textit{LogisticRegressionStrategy} based on configuration.
+    
+    \item \textbf{Chain of Responsibility} for the data pipeline: orchestrates the Data Processing Pipeline (\textit{pipeline.py}). Data flows through a sequence of independent handlers (Cleaning - Feature Engineering - Inference), promoting component reusability.
+\end{itemize}
+
+\bigskip
+
+
+\end{itemize}
+The project’s \textbf{front-end} was developed as an interactive, real-time dashboard utilizing \textbf{React}, a leading library for engineering modern and dynamic user interfaces. The primary objective is to provide users with an immediate and intuitive visualization of sensor data and AI-generated insights, while minimizing latency and computational overhead.
+
+\subsection{Implementation Details}
+
+\subsubsection{Event Bus}
+The \textbf{Greenfield Advisor} event-driven backbone is architected around a containerized \textbf{Apache Kafka} cluster, managed via \textbf{Docker Compose} and \textbf{Zookeeper}. This containerization strategy was adopted to ensure environment immutability and cross-platform reproducibility, thereby mitigating configuration discrepancies between development and deployment phases.
+
+\noindent To facilitate communication within a hybrid container-host environment, a dual-listener configuration was implemented:
+
+\begin{itemize}
+    \item \textbf{Internal Listener (kafka:29092):}  Dedicated to intra-container traffic and service orchestration within the isolated Docker network.
+    
+    \item \textbf{External Listener (localhost:9092):} Established via port mapping to allow host-resident microservices—including the Sensor Producer and Agri-Analyzer—to interface with the broker with minimal latency.
+\end{itemize}
+
+\noindent While the current implementation utilizes the \textbf{PLAINTEXT} protocol to streamline debugging and payload inspection, the architecture is designed for forward compatibility. The system is ``production-ready,'' allowing for the seamless integration of \textbf{SASL/SSL} encryption and authentication protocols through modular configuration updates, ensuring scalability and security without requiring modifications to the underlying application logic.
+\subsubsection{Microservices and Pattern}
+
+\textbf{IoT Ingestion Service}, which is realized through the \texttt{producer\_sensor.py} module (Listings 1÷2), serves as the primary ingestion point for the system's data stream. It loads a tabular dataset using the centralized \texttt{load\_dataset\_robust} function and streams each row as a JSON event to the Kafka topic \texttt{sensor-data}. Each event incorporates specific metadata fields—\texttt{\_event\_type}, \texttt{\_row\_id}, and \texttt{\_ts}—to facilitate end-to-end traceability and stream categorization. The module implements row-by-row streaming with a defined throttling mechanism (0.5 s) to enable controlled testing and replay scenarios.
+
+Architecturally, the producer implements the \textbf{Publisher} role within the \textbf{Observer pattern}, effectively decoupling telemetry generation from downstream domain consumers and modeling pipelines. This separation of concerns enhances both scalability and system resilience.
+
+This module is responsible for the ingestion phase of the system. Within the overall architecture, it operates upstream of domain-specific consumers (energy, fertilization, irrigation) and the notification service, serving as the primary source that feeds the event-driven workflow.
+\begin{itemize}
+\item \textbf{Interface and I/O}
+The module takes as \textbf{input} a \textbf{CSV file} (\texttt{data\_test.csv}), which is loaded through \texttt{load\_dataset\_robust(...)} from \texttt{data\_loader.py}. This function ensures robust data handling, including type validation, missing value imputation, and proper formatting.
+
+Configuration parameters are hard-coded within the module: \texttt{TOPIC = "sensor-data"} and \texttt{BOOTSTRAP\_SERVERS = "localhost:9092"}.
+
+\bigskip
+For each row in the DataFrame, the module produces as \textbf{output} a \textbf{JSON event} and publishes it to the Kafka topic \texttt{sensor-data}.
+
+\bigskip
+Examples of step by step functioning
+
+\begin{lstlisting}[language=Python, caption={Extract from code ``producer\_sensor.py'' - Producer Initialization}, basicstyle=\footnotesize\ttfamily]
+def build_producer():
+    return KafkaProducer(
+        bootstrap_servers=BOOTSTRAP_SERVERS,
+        # Spezziamo le righe lunghe per rientrare nei margini
+        value_serializer=lambda v: 
+            json.dumps(v).encode("utf-8"),
+        key_serializer=lambda k: 
+            k.encode("utf-8") if k else None
+    )
+\end{lstlisting}
+
+\bigskip
+
+\textbf{Connecting to the Kafka broker and defining serializers:} application establishes a link with the Kafka messaging system and specifies how data should be converted into a suitable format for transmission. In this case, the payload is serialized as JSON and encoded in UTF-8.
+
+The message key is \textbf{important for partitioning} because Kafka uses it to decide which partition the message will go to. If all messages use the same fixed key (e.g., ``sensor''), they will all be placed in the same partition. This guarantees \textbf{total ordering} of messages but \textbf{reduces parallelism}, since only one partition is being used.
+
+\clearpage
+
+\begin{lstlisting}[language=Python, caption={Extract from code ``producer\_sensor.py'' - Sending Loop}]
+for idx, row in df.iterrows():
+    event = row.to_dict()
+
+    # Metadata
+    event["_event_type"] = "sensor_reading"
+    event["_row_id"] = int(idx)
+    event["_ts"] = time.time()
+
+    producer.send(TOPIC, key="sensor", value=event)
+    print(f"[Producer] sent row={idx}")
+    time.sleep(0.5)
+\end{lstlisting}
+
+\bigskip
+
+The \textbf{code loops} through each row of a DataFrame, converts it into a dictionary, adds metadata (event type, row ID, timestamp), and sends it as a JSON message to a Kafka topic using a fixed key ``sensor''.
+
+This ensures all messages are in order but limits parallelism. A short delay (0.5s) is added between sends to control the rate.
+
+\bigskip
+\item \textbf{Design Patterns and Architectural Choices}
+The system employs an event-driven, publish–subscribe model, decoupling data production from processing and allowing independent consumers.
+
+Each event includes a minimal metadata schema (\texttt{\_event\_type}, \texttt{\_row\_id}, \texttt{\_ts}) to ensure traceability. Partitioning uses a fixed key (\texttt{"sensor"}), which guarantees message ordering but limits scalability.
+
+\bigskip
+\end{itemize}
+
+\textbf{Agri-Analyzer Engine}, which is realized through the \texttt{analyzer.py} module (Listings 3÷6), represents the computational core of the Greenfield Advisor architecture. Unlike a simple passive consumer, this microservice acts as a real-time decision engine that orchestrates the entire processing flow, from raw data ingestion to the formulation of agronomic advice. Its internal architecture is designed to reconcile two apparently conflicting requirements: the deterministic reliability of rule-based systems and the predictive capacity of Machine Learning.
+\begin{itemize}
+\item  \textbf{Initialization \& Cold-Start Training}
+
+Upon service startup, before entering the event listening loop, the system executes a pre-training phase. This architectural choice ensures that the \textbf{Machine Learning} (ML) models are immediately operational without relying on external training services. The code loads a historical dataset (using \texttt{load\_dataset\_robust}), instantiates the processing pipelines, and trains three distinct \textbf{Logistic Regression} models for Irrigation, Fertilization, and Energy.
+\clearpage
+\begin{lstlisting}[language=Python, caption={Extract from code ``analyzer.py'' - Training Phase}, basicstyle=\footnotesize\ttfamily]
+try:
+    csv_path = "dataset/enriched_tomato_irrigation_dataset.csv"
+    if not os.path.exists(csv_path): 
+        csv_path = "dataset/data_test.csv"
+
+    df_raw = load_dataset_robust(csv_path)
+    cleaner = DataCleaner(FeatureEngineer())
+    df_train = cleaner.handle(df_raw).fillna(0)
+
+    # Training AI
+    strat_irr = LogisticRegressionStrategy(max_iter=500)
+    strat_fert = LogisticRegressionStrategy(max_iter=500)
+    strat_en = LogisticRegressionStrategy(max_iter=500)
+
+    print(" ... Addestramento Logistic Regression...")
+    strat_irr.train(df_train[FEATURES], 
+                    rule_irr.predict(df_train))
+    strat_fert.train(df_train[FEATURES], 
+                     rule_fert.predict(df_train))
+    strat_en.train(df_train[FEATURES], 
+                   rule_en.predict(df_train))
+
+    # Creazione Pipeline
+    pipe_irr = DataCleaner(FeatureEngineer(ModelEstimator(
+        strat_irr, FEATURES, "Irrigation")))
+        
+    pipe_fert = DataCleaner(FeatureEngineer(ModelEstimator(
+        strat_fert, FEATURES, "Fertilization")))
+        
+    pipe_en = DataCleaner(FeatureEngineer(ModelEstimator(
+        strat_en, FEATURES, "Energy")))
+        
+    print("ANALYZER: Modelli pronti e operativi.")
+
+except Exception as e:
+    print(f"Errore critico nel Training: {e}")
+\end{lstlisting}
+
+The analyzer implements the \textbf{Chain of Responsibility} pattern: it facilitates the addition, removal, or reordering of pipeline stages without necessitating modifications to other system components (such as models, consumers, or producers). Consequently, this approach fulfills the core requirements of \textbf{modularity} and \textbf{interchangeability} specified in the project brief.
+
+\bigskip
+The \textbf{Chain of Responsibility} orchestrates data processing through four specialized, decoupled stages:
+\begin{itemize}
+    \item \textbf{Handler (Base Class):} Establishes the recursive delegation logic (\texttt{self.next}). It provides the structural backbone for sequential execution.
+    \item \textbf{DataCleaner (Standardization):} Enforces data integrity by normalizing categorical targets into binary format (0/1), encoding phenological crop stages, and applying plausibility filters.
+    \item \textbf{FeatureEngineer (Agronomic Enrichment):} Synthesizes high-level indicators from raw telemetry. It derives stress-related booleans and calculates the \textbf{Evapotranspiration ratio (ET\_ratio)}.
+    \item \textbf{ModelEstimator (Inference Layer):} Integrates the \textbf{Strategy Pattern} to execute predictive logic. It decouples the mathematical model (e.g., Logistic Regression vs. Heuristic Rules) from the pipeline flow.
+\end{itemize}
+
+\bigskip
+\item \textbf{Asynchronous Event Loop \& Dual Subscription}
+
+A distinctive feature of the Analyzer is its Dual Subscription: the consumer listens not only to sensor data but also to a configuration channel. This configuration enables two parallel flows:
+\begin{itemize}
+    \item \textbf{Data Flow} (\texttt{sensor-data}): Receives field telemetry (Soil Moisture, NPK, Air Temperature).
+    \item \textbf{Control Flow} (\texttt{system-settings}): Receives threshold updates from the user.
+\end{itemize}
+
+When a message arrives on the \texttt{system-settings} topic, the system updates the global \texttt{SYSTEM\_CONFIG} variable in real-time (\textbf{Hot-Swapping}), allowing system behavior modification without requiring a Docker microservice restart.
+
+\bigskip
+\item \textbf{The Hybrid Inference Model}
+The module's true innovation lies in its hybrid inference logic. For each received data packet, the Analyzer calculates two parallel opinions:
+
+
+\begin{itemize}
+
+ \item \textbf{Deterministic Layer (Rule-Based Strategy).} This layer guarantees safety and adherence to strict agronomic guidelines. It employs adjustable thresholds to trigger alerts for irrigation, fertilization, and energy consumption based on real-time agronomic telemetry.
+
+
+\begin{lstlisting}[language=Python, caption={Extract from code ``analyzer.py'' - Rule Based Logic}, basicstyle=\footnotesize\ttfamily]
+res_rules = {
+    'irrigation': {
+        'status': 'ON' if rule_irr.predict(df_single)[0] 
+                  == 1 else 'OFF',
+        'reason': f"Soglia attiva: < {rule_irr.m_thr}%"
+    },
+    'energy': {
+        'status': 'ACTIVE' if rule_en.predict(df_single)[0] 
+                  == 1 else 'OFF',
+        'reason': f"Range: {rule_en.tmin_thr}-
+                  {rule_en.tmax_thr}C"
+    },
+    'fertilization': {
+        'N': 'LOW' if data.get('Nitrogen_mg_kg',0) < 
+             rule_fert.n_thr else 'OK',
+             
+        'P': 'LOW' if data.get('Phosphorus_mg_kg',0) < 
+             rule_fert.p_thr else 'OK',
+             
+        'K': 'LOW' if data.get('Potassium_mg_kg',0) < 
+             rule_fert.k_thr else 'OK',
+             
+        'reason': f"Soglie NPK: {rule_fert.n_thr}/"
+                  f"{rule_fert.p_thr}/{rule_fert.k_thr}"
+    }
+}
+\end{lstlisting}
+
+The use of rules ensures immediate Explainability: if irrigation starts, the system can state exactly why (e.g., ``Active Threshold: $<$ 40\%'').
+
+\bigskip
+ \item \textbf{Probabilistic Layer (AI/ML Inference – Logistic Regression).} It provides a supervised learning implementation for binary classification. By fitting a \texttt{scikit-learn} model to historical data, it captures statistical relationships between features and targets.
+
+\begin{lstlisting}[language=Python, caption={Extract from code ``analyzer.py'' - AI Inference}, basicstyle=\footnotesize\ttfamily]
+# Calcolo predizioni (spezzato su piu righe)
+p_irr = pipe_irr.handle(df_ai)\
+        ["Irrigation_Predicted"].iloc[0]
+        
+p_fert = pipe_fert.handle(df_ai)\
+         ["Fertilization_Predicted"].iloc[0]
+         
+p_en = pipe_en.handle(df_ai)\
+       ["Energy_Predicted"].iloc[0]
+
+res_ai['irrigation'] = {
+    'status': 'ON' if p_irr==1 else 'OFF', 
+    'reason': 'AI (LogReg)'
+}
+res_ai['energy'] = {
+    'status': 'ACTIVE' if p_en==1 else 'OFF', 
+    'reason': 'AI (LogReg)'
+}
+\end{lstlisting}
+
+This layer introduces an adaptability capability based on historical data, allowing the system to suggest interventions even in borderline situations that might escape static rules.
+\end{itemize}
+\bigskip
+\item \textbf{Advice Aggregation \& Dispatching}
+At the end of processing, the Analyzer does not directly actuate hardware changes but publishes a ``System Advice'' (Advice Packet) to the \texttt{system-advice} topic.
+
+\begin{lstlisting}[language=Python, caption={Extract from code ``analyzer.py'' - Advice Packet}]
+# 5. Pubblicazione Risultato (System Advice)
+advice_packet = {
+    'ts': data.get('ts', time.time()),
+    'rules': res_rules,
+    'ai': res_ai,
+    'config': SYSTEM_CONFIG,
+    'settings_updated': SETTINGS_UPDATED
+}
+\end{lstlisting}
+
+This decoupled design allows downstream consumers (such as the Notification Service or the Dashboard) to receive a complete view of the system state, independently deciding how to present the information to the user (e.g., showing an alert if AI and Rules disagree).
+\end{itemize}
+\bigskip
+
+\textbf{Notification Service}, which is realized through the \texttt{notification\_consumer.py} module, implemented as the terminal observer of the Event-Driven architecture, represents a significant evolution compared to traditional ``stateless'' alerting systems.
+
+\noindent Instead of merely forwarding instant notifications for every single threshold breach—an approach that often generates information redundancy—this microservice adopts an advanced \textbf{Stateful} logic.
+The primary objective is to transform high-frequency event streams into consolidated operational reports, offering the agronomist a clear picture free of background noise.
+\begin{itemize}
+\item \textbf{Stateful Logic \& Contextualization}: Contextualization capabilities are ensured by the implementation of a \textbf{Sliding Window (Circular Buffer)}. Since an isolated alarm possesses little diagnostic value without the data preceding it, the system constantly maintains the last 15 operational ``snapshots'' in memory. Consequently, when a report is generated, it does not simply record the instant of the anomaly but includes the entire temporal evolution recorded in the buffer, enabling immediate forensic analysis of the triggering causes and system dynamics.
+
+\bigskip
+\item \textbf{Edge Detection \& Finite State Machine}: Control of the monitoring flow is entrusted to a \textbf{Finite State Machine} operating according to an \textbf{Edge Detection} logic.
+The system is designed to react exclusively to ``Rising Edges'' (transitions from the OFF state to the ON state), deliberately ignoring stationary states. This architectural choice prevents notification duplication for persistent anomalies, ensuring that the alerting process is triggered only at the exact moment an actuator is activated or a critical threshold is violated.
+
+\bigskip
+\item \textbf{Mitigation of Alert Fatigue}: To mitigate the phenomenon of \textbf{``Alert Fatigue''}, typical of complex IoT environments where a single environmental factor can trigger chain reactions across multiple subsystems (e.g., simultaneous irrigation and climate control), a \textbf{Temporal Aggregation} logic has been introduced. Upon detection of the first trigger, the service enters an ``Active Monitoring'' state, initiating a predefined countdown.
+During this time window, any emerging new alarms do not generate separate transmissions nor reset the cycle, but are accumulated into the current report.
+Only at the end of the countdown does the system transmit a single cumulative notification, drastically optimizing communication towards the end user.
+
+\bigskip
+\item \textbf{Output Management \& Virtual Debugging}: Finally, the architecture provides for flexible output management via the \textbf{SMTP protocol}.
+Reports are structured as multipart MIME payloads to ensure the readability of tabular data on any client. To support a secure and efficient development cycle, the system integrates a \textbf{``Virtual Postman'' (Debug Server)}: an asynchronous microservice that intercepts local SMTP traffic and renders the content directly to the console.
+This approach decouples the test environment from the production infrastructure, allowing validation of formatting and sending logic without risking credential locking or the accidental dispatch of real communications.
+\bigskip
+\end{itemize}
+
+\clearpage
+
+\textbf{API Gateway \& Vision AI Gateway}, which is realized through the \texttt{server.py} module, is the third pillar of the backend architecture which serves as the primary synchronous interface between the React frontend and the asynchronous microservices ecosystem.
+\bigskip
+
+\noindent The \textbf{API Gateway} acts as the essential link between the backend and the user’s dashboard.
+One of its main jobs is to solve a communication mismatch: while the internal system uses \textbf{Apache Kafka} to move data, web browsers cannot easily ``talk'' to Kafka. To fix this, the Gateway acts as a \textbf{bridge}, converting Kafka messages into a \textbf{WebSocket} stream.
+This allows the system to ``push'' sensor data and AI results directly to the screen the moment they happen, avoiding the delays found in older methods like constant refreshing (HTTP polling).
+
+\bigskip
+
+\noindent A key design choice was how the \textbf{Computer Vision} (image analysis) is handled.
+While most data is processed in the background, we integrated the photo analysis directly into the Gateway. We did this because users expect an immediate result when they upload a photo of a plant.
+By using a direct ``Request-Response'' approach instead of sending the photo through a long queue, the system provides instant diagnostic feedback.
+
+\bigskip
+
+\noindent The following Sequence Diagram details the synchronous interaction flow.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/vision_sequence.png}
+    \caption{Vision AI Sequence Diagram.}
+    \label{fig:vision_sequence}
+\end{figure}
+
+\bigskip
+
+\noindentThe ``brain'' of this system is a \textbf{MobileNetV2} neural network.
+This specific model was chosen because it is ``lightweight''—it is designed to run fast on smaller servers or devices without sacrificing accuracy.
+It uses a clever mathematical shortcut called ``depthwise separable convolutions'' to stay efficient and responsive.
+
+\bigskip
+
+\noindent To keep the code clean and organized, we used a specific programming layout (the \textbf{Strategy Pattern}) that keeps the image-processing math separate from the web-server logic.
+This makes the system easier to update and maintain. Additionally, the system doesn't just give a technical diagnosis; it adds a ``human'' layer by providing actual farming advice based on what the AI sees. Finally, we built the system to be resilient: if the AI model fails to load, the rest of the dashboard (like the sensor monitoring) will continue to work perfectly, ensuring the most critical parts of the app are always available.
+\bigskip
+
+\textbf{Security Service} is realized through the user profilation system which is designed to ensure security, modularity, and scalability toward advanced functionalities. The workflow originates at the registration phase, where the system collects essential user data, including email, name, and credentials.
+
+\bigskip
+
+\noindent To ensure data integrity, validation is performed via \textbf{Zod}, a TypeScript library that enables the definition of rigorous schemas and the enforcement of validation rules, such as email formatting and password complexity (minimum length and alphanumeric requirements).
+
+\bigskip
+
+\noindent Once validated, the data is persisted in an \textbf{SQLite} database, selected for its lightweight footprint and seamless integration.
+Database connectivity is managed through \textbf{better-sqlite3}, a high-performance driver providing synchronous APIs and support for prepared statements, thereby mitigating SQL injection risks and optimizing performance.
+The database is configured in \textbf{Write-Ahead Logging (WAL)} mode to enhance concurrency between read and write operations. The data schema is defined through a migration script (\texttt{migrate.ts}), which establishes the users table with standard integrity constraints, including primary keys, unique email identifiers, and mandatory fields.
+
+\bigskip
+
+\noindent For credential management, the system employs \textbf{bcrypt}, a library that applies a secure hashing algorithm to passwords to prevent plaintext storage. Following successful registration or authentication, the system issues a \textbf{JSON Web Token (JWT)} via the jsonwebtoken library.
+This token, signed with an application secret (\texttt{JWT\_SECRET}) to ensure authenticity and integrity, contains the user identifier and facilitates \textbf{stateless authentication}, thereby eliminating the need for server-side session persistence.
+
+\bigskip
+
+\noindent Every protected request is intercepted by the \textbf{requireAuth middleware}, which verifies the token’s validity and extracts the subject (\texttt{sub}) claim.
+This identifier is injected into the request context, allowing subsequent handlers to retrieve the corresponding profile. The middleware is implemented within \textbf{Express}, the Node.js framework selected for REST API management, and leverages \textbf{TypeScript’s} static typing to ensure code robustness and maintainability.
+
+\bigskip
+
+\noindent The architecture follows a modular design: routes are managed by \textbf{Express Router}, business logic is encapsulated within \textbf{services} (\texttt{authService.ts}), and data access is delegated to \textbf{repositories} (\texttt{userRepo.ts}). Configuration is centralized via \textbf{dotenv}, which manages environment variables for sensitive parameters such as the JWT secret and database paths.
+To safeguard endpoints against abuse, \textbf{express-rate-limit} is integrated to restrict the frequency of requests, thereby reducing the risk of brute-force attacks. 
+
+\bigskip
+
+\noindent In summary, this profiling mechanism synthesizes modern, secure technologies: TypeScript for type safety, Express for API orchestration, better-sqlite3 for persistence, bcrypt for credential protection, and JWT for stateless authentication, with a clear path toward intelligent profiling via machine learning. This architecture guarantees security, scalability, and extensibility, rendering the system suitable for production environments and future integrations.
+\newpage
+
+\subsection{Dashboard}
+
+\subsubsection{User Interface}
+\begin{itemize}
+\item\textbf{Authentication Gateway} : the entry point to the \textbf{Greenfield Advisor} platform \ref{fig:frontend_login} is defined by an authentication module designed to serve as a robust security barrier for protected resources. The interface features a minimalist and streamlined design, centering user interaction on a primary authentication card for credential entry. This component manages the login procedure for authorized personnel, such as agronomists, while providing navigation paths for new user registration.
+
+\bigskip
+
+Architecturally, the interface visually previews the sidebar navigation—highlighting core features such as Vision AI, Models, and Settings—while strictly subordinating their access to the successful completion of the security handshake managed by the back-end service.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend_login.png}
+    \caption{Image of Front-End (Log-In)}
+    \label{fig:frontend_login}
+\end{figure}
+\bigskip
+
+\item \textbf{System Home \& Navigation Hub} : Upon successful authentication, the user is directed to the Home Page \ref{fig:frontend_home}, which serves as the platform’s central navigation hub. The layout is organized around a persistent sidebar, ensuring rapid and intuitive access to various functional modules while maintaining a clear separation between control elements and operational content.
+
+\bigskip
+
+Beyond its role in routing, the interface acts as an ``architectural showcase.''
+Through three prominent information cards, the system informs the user of the underlying background technologies: the Event-Driven IoT infrastructure powered by Kafka, the Dual Strategy decision logic, and the Deep Vision engine. Centrally, the ``Hero'' section provides two immediate calls-to-action (CTAs), streamlining the workflow toward the core activities: real-time sensor monitoring (Dashboard) and disease diagnosis (Vision AI).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend_home.png}
+    \caption{Image of Front-End (Home Page)}
+    \label{fig:frontend_home}
+\end{figure}
+
+\bigskip
+
+\item \textbf{Real-Time Dashboard \& Decision Support} : The platform’s operational core is the Dashboard \ref{fig:frontend_cockpit}, a sophisticated interface engineered for the synchronous visualization of field telemetry streams. The layout follows a hierarchical organization: the upper section provides an immediate overview of Key Performance Indicators (KPIs) and historical trends, rendered through dynamic charts that are updated in real time via the \textbf{WebSocket} protocol.
+
+\bigskip
+
+However, the most significant architectural feature is located in the lower control panel, which monitors the status of system actuators (Irrigation, Fertilization, and Energy).
+In this section, the interface visually represents the \textbf{Strategy Pattern} implemented in the backend. Through a functional toggle mechanism, the operator can switch the displayed decision logic between ``AI Model'' (probabilistic predictions based on \textbf{Logistic Regression}) and ``Rule-Based'' (deterministic algorithms based on static thresholds). This functionality facilitates an immediate comparison between the two strategies, providing the agronomist with a dual perspective for validating operational decisions and ensuring the transparency of the automated processes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend_cockpit.png}
+    \caption{Image of Front-End (Cockpit)}
+    \label{fig:frontend_cockpit}
+\end{figure}
+\bigskip
+
+\item \textbf{Vision AI Specialist} : This module facilitates on-demand interaction with the Computer Vision subsystem, providing an instantaneous diagnostic tool \ref{fig:frontend_vision} for plant pathology. The interface employs a clean, two-column layout that visually mirrors the underlying \textbf{Request-Response} pattern. The left panel is dedicated to input management, allowing the operator to upload and preview photographic assets, while the right panel displays the inference results generated by the backend.
+
+\bigskip
+
+A fundamental aspect of the system’s usability is the \textbf{semantic translation} of technical data.
+Rather than merely presenting a raw classification and its associated confidence index (e.g., 99.9\%), the interface enriches the output with structured operational protocols. By incorporating ``Immediate Actions'' and ``Future Prevention'' sections, the system converts the neural network's probabilistic predictions into actionable agronomic instructions.
+This approach effectively bridges the gap between raw data and decision support, providing a comprehensive solution for crop management.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend_vision_ai.png}
+    \caption{Extract from ``Front End (Vision AI Specialist)''}
+    \label{fig:frontend_vision}
+\end{figure}
+\bigskip
+
+\item \textbf{System Configuration \& Calibration} : The Settings \& Configuration module serves as the control interface for the dynamic management \ref{fig:frontend_settings} of the platform’s operational parameters. Utilizing a \textbf{tabbed interface} layout, the module enables agronomists to directly modify the backend business logic without requiring source code interventions or system restarts.
+
+\bigskip
+
+Within the ``Agronomic Thresholds'' section, the user is provided with granular controls—including sliders for temperature and humidity ranges and specific input fields for \textbf{NPK nutrient} levels—designed for the fine-tuning of the IoT engine. Architecturally, this interface functions as more than a local preference menu; it acts as a trigger for \textbf{real-time system reconfiguration (hot-swapping)}. Once saved, these modifications instantaneously redefine the threshold values that govern decision-making logic and the triggering of automated alerts, ensuring the system remains responsive to evolving environmental conditions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend_settings.png}
+    \caption{Image of Front-End (Settings)}
+    \label{fig:frontend_settings}
+\end{figure}
+\end{itemize}
+\newpage
+
+\section{Results}
+
+In this section Experimental Results are described and discussed. The study started with the acquisition of an external dataset.
+For methodological simplicity, the current research focuses exclusively on tomato cultivation; however, the framework is designed to be scalable to other crop varieties in the future. The investigation centered on fundamental parameters influencing tomato growth, with the primary objective of optimizing resource allocation and minimizing waste.
+Those parameters have been utilized for the treshold setting of irrigation, heating and fertilizing inside the rule-based strategy\cite{shamshiri}\cite{ucipm}\cite{demetra}.
+
+\bigskip
+
+The baseline dataset \cite{kasera} was enriched through the addition of new features to identify potential inter-variable relationships.
+This approach stems from the recognition that external datasets often lack the necessary depth to capture the full complexity of the phenomenon under observation. In this context, while the initial dataset provided fundamental data, achieving more accurate profiling necessitated the introduction of derived or calculated variables.
+This process, known as \textbf{feature engineering}, enables the transformation of raw data into more significant informational inputs for the model. These augmented features allow the system to discern patterns that would remain latent if only the original variables were utilized.
+Specifically, metrics such as ratios, averages, and normalized scores were integrated to ensure data homogeneity and comparability.
+
+\bigskip
+
+The enrichment of the dataset provides two fundamental advantages: first, it enhances the \textbf{discriminative capacity} of the model, thereby reducing the risk of misclassification; second, it facilitates the \textbf{construction of more holistic and realistic profiles} that reflect not only static attributes but also dynamic behaviors. This is particularly critical in recommendation or segmentation systems, where the quality of the features directly dictates the precision of the predictions.
+
+\bigskip
+
+In summary, the integration of new features was a strategic decision to bolster model robustness and the quality of profiling.
+This process effectively transformed a basic dataset into a more sophisticated knowledge base, optimized for personalized decision-making.
+
+\subsection{Experimental Protocol and Environment}
+
+The validation phase was designed to evaluate the efficency of predictive strategies within environmental and agronomic monitoring scenarios.
+In the absence of a physical sensor network, the data flow was orchestrated via an \textbf{Apache Kafka} event-streaming infrastructure utilizing a \textbf{Digital-Twin} approach.
+
+A Producer module replayed the time-series datasets, while Consumers—implementing the Strategy pattern—processed observations and published decisions to designated output topics. The evaluation utilized two primary data sources:
+\begin{itemize}
+    \item \textbf{External Dataset (Agronomic Domain)\cite{kasera}:} Employed as the primary benchmark for in-sample training and validation.
+    \item \textbf{Synthetic Dataset (OOD Stress Test):} A stochastically generated control set used to assess Out-of-Distribution (OOD) robustness and the model's generalization capabilities.
+\end{itemize}
+
+While \textbf{accuracy} was adopted as the primary metric for evaluating decision-making tasks (intervention required vs. not required), the experiment also implicitly validated the system's \textbf{responsiveness and stability} under continuous data ingestion loads.
+
+\subsection{Performance Analysis – Logistic Regression}
+
+The results indicate high model efficiency within agronomic domains, contrasted by increased complexity in the energy sector. The following table summarizes the experimental outcomes:
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \arrayrulecolor{white} 
+    \setlength\arrayrulewidth{1pt}
+    
+    \begin{tabular}{p{4cm}p{4cm}p{4cm}p{2.5cm}}
+    
+    \rowcolor{headerblue} 
+    \textcolor{white}{\textbf{Domain}} & 
+    \textcolor{white}{\textbf{Benchmark Accuracy}} & 
+    \textcolor{white}{\textbf{OOD Accuracy}} & 
+    \textcolor{white}{\textbf{Delta ($\Delta$)}} \\
+    \hline
+    
+    \rowcolor{rowgray}
+    Irrigation & 99.7\% & 99.21\% & -0.49\% \\
+    \hline
+    
+    Fertilization & 96.0\% & 96.13\% & +0.13\% \\
+    \hline
+    
+    \rowcolor{rowgray}
+    Energy (HVAC) & 77.0\% & 78.89\% & +1.89\% \\
+    
+    \end{tabular}
+    \arrayrulecolor{black}
+    \caption{Logistic Regression Performance Table}
+    \label{tab:performance}
+\end{table}
+
+\bigskip
+
+Domain-Specific Findings:
+
+\begin{itemize}
+    \item \textbf{Irrigation and Fertilization :} Both tasks demonstrated excellent performance, approaching near-perfect linear separability.
+    This high accuracy suggests that agronomic variables (soil moisture, pH, and N-P-K nutrients) possess distinct decision boundaries and strong semantic alignment with the prescribed intervention thresholds.
+    
+    \item \textbf{Energy Management :} The lower performance (77.0\%) indicates that Logistic Regression is insufficient to capture the dynamic nature of energy consumption.
+    Factors such as thermal inertia and occupancy variables introduce non-linearities that necessitate more complex models or extensive feature engineering.
+\end{itemize}
+
+\subsection{Critical Discussion and Implications}
+
+The marginal performance decay observed in the OOD set confirms the stability of the learned decision boundaries.
+However, the analysis highlights several critical points for system evolution:
+
+\begin{itemize}
+    \item \textbf{Overfitting and Bias Risk :} The near-total accuracy in irrigation may stem from minimal label noise in the training set.
+    Future validation should involve "noisy" real-world data to ensure robustness.
+    
+    \item \textbf{Explainability :} The choice of logistic regression facilitates the extraction of odds ratios, allowing domain experts (agronomists and energy managers) to validate the statistical weight assigned to each variable.
+    
+    \item \textbf{Simulation Constraints :} While the event-driven architecture is structurally sound, the simulation does not account for physical hardware variables such as network jitter, latency, or sensor drift.
+\end{itemize}
+
+\subsection{Visual System}
+
+Experimental validation of the API Gateway \& Vision AI module focused on integrating synchronous user interaction with heavy Deep Learning workloads. The selection of \textbf{MobileNetV2} was pivotal, providing an optimal balance between accuracy and computational efficiency.
+This choice ensured inference speeds remained within the limits of the Request-Response paradigm, preventing the performance bottlenecks typical of more complex architectures.
+
+\bigskip
+Architecturally, the \textbf{Strategy Pattern} successfully decoupled HTTP lifecycles from tensor processing, allowing the Gateway to handle image analysis without compromising concurrent WebSocket telemetry. Furthermore, functional testing confirmed the effectiveness of the semantic layer, which successfully translated raw neural network probabilities into structured, actionable agronomic protocols.
+\newpage
+
+\section{Conclusions}
+
+This research culminated in the design and implementation of Greenfield Advisor, a modular precision agriculture framework.
+The project demonstrates how the adoption of modern architectural patterns can effectively address the inherent complexities of IoT-based systems.
+
+\bigskip
+
+From a Software Engineering perspective, the primary contribution lies in the validation of the Event-Driven paradigm.
+The orchestration via Apache Kafka ensured effective decoupling between data ingestion layers (Producers) and decision engines (Consumers).
+This enabled the system to manage high-frequency telemetry streams without bottlenecks while providing native horizontal scalability. Furthermore, the use of a containerized microservices architecture (Docker) confirmed the robustness of the solution, ensuring process isolation and deployment environment reproducibility.
+
+\bigskip
+
+A distinctive feature of the project is the implementation of a Dual Strategy decision logic.
+By combining the Strategy and Chain of Responsibility patterns, the system harmonizes the rigor of rule-based algorithms with the predictive power of Machine Learning.
+This provides agronomists with a flexible and transparent decision-support tool.
+
+\bigskip
+
+Finally, the integration of the Computer Vision subsystem directly within the API Gateway illustrates a successful balance between intensive computational loads (Deep Learning) and the low-latency requirements essential for a responsive user experience.
+\newpage
+\bibliographystyle{ieeetr} 
+\bibliography{references}
+
+\end{document}
