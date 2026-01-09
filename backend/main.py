@@ -15,7 +15,6 @@ def run_tabular_analysis():
 
     try:
         print("--- Caricamento Dataset ---")
-        # Assicurati che questi file CSV siano nella cartella principale!
         df_train_source = load_dataset_robust("dataset/enriched_tomato_irrigation_dataset.csv")
         df_external_test = load_dataset_robust("dataset/data_test.csv")
     except Exception as e:
@@ -86,7 +85,6 @@ def run_vision_test():
     model_file = "greenfield_agri_brain.h5"
     json_file = "class_indices.json"
     
-    # MODIFICA: CARTELLA TEST
     test_dir = "testvisivo" 
 
     # 1. Controllo esistenza modello
@@ -142,7 +140,6 @@ def run_vision_test():
     if files_found == 0:
         print(f"\nNessuna delle immagini specificate trovata in '{test_dir}'.")
 
-# MAIN EXECUTION
 if __name__ == "__main__":
     run_tabular_analysis()
 
