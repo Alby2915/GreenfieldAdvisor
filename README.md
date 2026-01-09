@@ -1,3 +1,4 @@
+# 🌱 GreenField Advisor  
 **Event-Driven AI Platform for Precision Agriculture**
 
 GreenField Advisor is a **full-stack, event-driven Decision Support System (DSS)** for precision agriculture.  
@@ -185,6 +186,12 @@ progetto-greenfield-advisor/
 
 
 ## ▶️ How to Run the Project (Local)
+
+### 📋 Prerequisites
+Ensure you have the following installed on your machine:
+- **Docker & Docker Compose** (for Kafka and Zookeeper)
+- **Python 3.9+** (for Backend Microservices)
+- **Node.js 16+ & npm** (for Frontend and Auth Service)
 
 ### 1️⃣ Start Kafka (Docker)
 From the folder containing `docker-compose.yml`:
