@@ -15,7 +15,6 @@ except ImportError:
 
 # BASE DI CONOSCENZA AGRONOMICA (Sincronizzata con class_indices.json)
 
-# Mappiamo gli indici specifici del TUO modello ai consigli dettagliati.
 KNOWLEDGE_BASE = {
     # POMODORO (Tomato) [Indici 33-42] 
     33: {
@@ -185,7 +184,6 @@ class GreenFieldImageAdvisor:
     def consult(self, image_path):
         print(f"  [Vision] Analisi file: {image_path} ...")
         
-        # Ottieni indice classe e confidenza dalla rete neurale
         idx, conf = self.vision_strategy.analyze(image_path)
         
         # 1. Cerca nella Knowledge Base Dettagliata (Priorità)
