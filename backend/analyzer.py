@@ -89,7 +89,7 @@ def main():
             print(f"⚙️ RICEVUTO AGGIORNAMENTO CONFIG: {payload}")
             SYSTEM_CONFIG.update(payload)
             SETTINGS_UPDATED = True
-            # Non facciamo altro, al prossimo dato sensore useremo i nuovi valori
+            
             continue
 
         # B. ELABORAZIONE DATI SENSORE 
