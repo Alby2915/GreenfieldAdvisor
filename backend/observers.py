@@ -37,7 +37,7 @@ class AdvisorObserver(Observer):
 
     def update(self, row: pd.Series):
         df_one = pd.DataFrame([row])          # 1-row dataframe
-        result = self.pipeline.handle(df_one) # reuse your CoR pipeline
+        result = self.pipeline.handle(df_one) 
 
         pred_col = f"{self.target_name}_Predicted"
         pred = int(result[pred_col].iloc[0])
