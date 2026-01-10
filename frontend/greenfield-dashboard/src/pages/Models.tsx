@@ -53,7 +53,6 @@ export default function Models() {
                     probabilità che la pianta abbia bisogno di acqua o fertilizzante.
                 </Typography>
                 
-                {/* FORMULE MATEMATICHE AGGIORNATE */}
 <Paper variant="outlined" sx={{ p: 2, bgcolor: '#fafafa', fontFamily: 'monospace', borderLeft: '4px solid #1565c0', fontSize: '0.75rem', overflowX: 'auto' }}>
                   <Box sx={{ mb: 1, whiteSpace: 'nowrap' }}>
                     {/* Beta weights per Soil Moisture e Temp */}
